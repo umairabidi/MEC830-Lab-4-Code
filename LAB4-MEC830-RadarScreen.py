@@ -35,7 +35,8 @@ def port_search():
 
 
 arduino_ports = port_search()
-ser = serial.Serial(arduino_ports[0], baudrate=115200)  # match baud on Arduino
+#ser = serial.Serial(arduino_ports[0], baudrate=115200)  # match baud on Arduino
+ser = serial.Serial(port='COM3', baudrate=115200)  # match baud on Arduino
 ser.flush()  # clear the port
 
 # Start the interactive plotting tool and
@@ -142,7 +143,7 @@ while True:
                 fig.canvas.blit(ax.bbox)  # replot only data
                 fig.canvas.flush_events()  # flush for next plot
         else:
-            if data == 'Radar Start':  # stard word on Arduno
+            if data == 'Radar Start':  # start word on Arduno
                 start_word = True  # wait for Arduino to output start word
                 print('Radar Starting...')
             else:
