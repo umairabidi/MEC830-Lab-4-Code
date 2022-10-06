@@ -2,8 +2,8 @@
 
 #define ECHO 		5
 #define TRIG		6	
-#define SERVO_MIN	0
-#define SERVO_MAX	180
+#define SERVO_MIN	1
+#define SERVO_MAX	179
 #define servoPin	3
 
 Servo servo;
@@ -17,7 +17,6 @@ void setup() {
 	pinMode(ECHO, INPUT);
 	pinMode(TRIG, OUTPUT);
 	Serial.begin(115200);
-	Serial.println("Radar Start");
 }
 
 void loop() {
@@ -28,8 +27,8 @@ void loop() {
 		distance = pulseIn(ECHO, HIGH, 25000)/57.753;
 		Serial.print(servoPosition++);
 		Serial.print(",");
-		Serial.print((int)distance);
-		Serial.print(".");
+		Serial.println((int)distance);
+		//Serial.print(".");
 		_delay_ms(5);
 		
 	}
@@ -39,8 +38,8 @@ void loop() {
 		distance = pulseIn(ECHO, HIGH, 25000)/57.753;
 		Serial.print(servoPosition--);
 		Serial.print(",");
-		Serial.print((int)distance);
-		Serial.print(".");
+		Serial.println((int)distance);
+		//Serial.print(".");
 		_delay_ms(5);
 	}
 }

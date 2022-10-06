@@ -76,7 +76,7 @@ win.wm_geometry('+{0:1.0f}+{1:1.0f}'. \
                 format((screen_res[0] / 2.0) - (plot_res[2] / 2.0),
                        (screen_res[1] / 2.0) - (plot_res[3] / 2.0)))  # centering plot
 fig.canvas.toolbar.pack_forget()  # remove toolbar for clean presentation
-fig.canvas.set_window_title('Arduino Radar')
+fig.canvas.manager.set_window_title('Arduino Radar')
 
 fig.canvas.draw()  # draw before loop
 axbackground = fig.canvas.copy_from_bbox(ax.bbox)  # background to keep during loop
@@ -112,7 +112,7 @@ fig.show()
 # inifinite loop, constantly updating the
 # 180deg radar with incoming Arduino data
 
-start_word, stop_bool, close_bool = False, False, False
+start_word, stop_bool, close_bool = True, False, False
 while True:
     try:
         if stop_bool:  # stops program
