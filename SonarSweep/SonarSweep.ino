@@ -28,8 +28,7 @@ void loop() {
 		Serial.print(servoPosition++);
 		Serial.print(",");
 		Serial.println((int)distance);
-		//Serial.print(".");
-		_delay_ms(5);
+		_delay_ms(10);
 		
 	}
 	while(servoPosition >= SERVO_MIN){
@@ -39,8 +38,7 @@ void loop() {
 		Serial.print(servoPosition--);
 		Serial.print(",");
 		Serial.println((int)distance);
-		//Serial.print(".");
-		_delay_ms(5);
+		_delay_ms(10);
 	}
 }
 
